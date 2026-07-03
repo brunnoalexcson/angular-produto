@@ -1,0 +1,12 @@
+<div class="produto">
+    <div class="produto__title produto__item">{{produto.title}}</div>
+    <div class="produto__price produto__item">R$ {{produto.price}},00</div>
+    <button class="produto__button-mostrar" (click)="buttonMostrar()">{{botaoDinamico}}</button>
+
+    <div *ngIf="isAtivo">
+        <p>Descrição: {{produto.description}}</p>
+        <p>Marca: {{produto.marca}}</p>
+        <p *ngIf="produto.estoque">Quantidade no Estoque: {{produto.estoque}}</p>
+        <p *ngIf="!produto.estoque">Produto esgotado</p>
+    </div>
+</div>
