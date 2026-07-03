@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
 
 export interface IProduto{
   title: string;
@@ -52,11 +52,58 @@ export class App {
       estoque: 2000
     },
     {
-      title: 'Neymar Jr',
+      title: 'Teste Jr',
       price: 2,
       description: 'Atacante brasileiro habilidoso. Aquele que irá trazer o hexa',
       marca: 'Santos FC',
       estoque: 1
     }
   ]
+
+  // name: string = 'Cadeira'; 
+
+  name: string = 'Teste';
+
+  handleInputChange(event: string){
+    console.log(event);
+    // this.name = event.toUppeCase();
+  }
+
+  botaoDinamico: string = 'Mostrar div';
+  showDiv: boolean = false;
+
+  handleBotaoDinamico(): void{
+    this.showDiv = !this.showDiv;
+
+    if(this.showDiv){
+      this.botaoDinamico = 'Fechar div';
+    } else{
+      this.botaoDinamico = 'Mostrar div';
+    }
+  }
+
+  isTruthy(){
+    // return {}; <-- É um elemento verdadeiro
+    // return []; <-- É um elemento verdadeiro
+    // return true; <-- É um elemento verdadeiro
+    // return 1; <-- É um elemento verdadeiro
+    // return "teste"; <-- É um elemento verdadeiro
+    // return "0"; <-- É um elemento verdadeiro
+    // return "false"; <-- É um elemento verdadeiro
+    // return this.pessoa.status; <-- É um elemento verdadeiro
+  }
+
+  isFalsy(){
+    // return false;
+    // return 0;
+    // return "";
+    // return '';
+    // return null;
+    // return undefined;
+    // return -0;
+    // return NaN;
+    // return this.pessoa.name;
+    // return this.pessoa.endereco?.rua; 
+  }
+
 }
